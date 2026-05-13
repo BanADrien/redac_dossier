@@ -1,0 +1,52 @@
+name: Documentation Lint & Validate
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  lint-markdown:
+    name: Lint Markdown
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install markdownlint-cli
+        run: npm install -g markdownlint-cli
+
+      - name: Run markdownlint
+        run: markdownlint 'docs/**/*.md' 'README.md' --config .markdownlint.json || true
+
+  validate-links:
+    name: Validate internal links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check internal links
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          use-verbose-mode: 'no'
+          check-modified-files-only: 'no'
+          config-file: '.mlc-config.json'
+        continue-on-error: true
+
+  check-last-updated:
+    name: Check last-updated footer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify all .md files have a last-updated footer
+        run: |
+          missing=0
+          while IFS= read -r file; do
+            if ! grep -q "Dernière mise à jour" "$file"; then
+              echo "MISSING footer in: $file"
+              missing=1
+            fi
+          done < <(find docs -name "*.md")
+          exit $missing

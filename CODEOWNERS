@@ -1,0 +1,62 @@
+# =============================================================================
+# CODEOWNERS — Dépôt de Documentation de Conception Technique (DCT) SupEvents
+# =============================================================================
+#
+# Ce fichier définit les responsables de chaque section du dépôt.
+# Toute Pull Request modifiant un fichier listé ici requiert la revue
+# du responsable désigné avant merge sur main.
+#
+# MEMBRE DU GROUPE :
+#   @BanADrien — Adrien DETEE (auteur unique)
+#
+# =============================================================================
+
+# Règle globale de fallback
+* @BanADrien
+
+# Fichiers de configuration
+README.md                                          @BanADrien
+CODEOWNERS                                         @BanADrien
+.gitignore                                         @BanADrien
+
+# Section 1 — Page de garde
+docs/01-page-de-garde.md                           @BanADrien
+
+# Section 2 — Historique des révisions
+docs/02-historique-revisions.md                    @BanADrien
+
+# Section 3 — Glossaire
+docs/03-glossaire.md                               @BanADrien
+
+# Section 4 — Contexte et objectifs
+docs/04-contexte-objectifs.md                      @BanADrien
+
+# Section 5 — Périmètre et limites
+docs/05-perimetre-limites.md                       @BanADrien
+
+# Section 6 — Architecture générale
+docs/06-architecture-generale/06.1-vue-logique.md  @BanADrien
+docs/06-architecture-generale/06.2-vue-processus.md @BanADrien
+docs/06-architecture-generale/06.3-vue-deploiement.md @BanADrien
+docs/06-architecture-generale/06.4-vue-donnees.md  @BanADrien
+
+# Section 7 — Conception détaillée
+docs/07-conception-detaillee/07-modules.md         @BanADrien
+
+# Section 8 — Interfaces & API
+docs/08-interfaces-api.md                          @BanADrien
+
+# Section 9 — Exigences transverses
+docs/09-exigences-transverses.md                   @BanADrien
+
+# Section 10 — Matrice de traçabilité
+docs/10-matrice-tracabilite.md                     @BanADrien
+
+# Section 11 — ADR
+docs/adr/README.md                                 @BanADrien
+docs/adr/ADR-001.md                                @BanADrien
+docs/adr/ADR-002.md                                @BanADrien
+docs/adr/ADR-003.md                                @BanADrien
+
+# Section 12 — Annexes
+docs/12-annexes.md                                 @BanADrien
